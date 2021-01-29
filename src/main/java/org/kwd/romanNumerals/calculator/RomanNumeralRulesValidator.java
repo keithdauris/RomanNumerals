@@ -1,10 +1,7 @@
 package org.kwd.romanNumerals.calculator;
 
-import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static org.kwd.romanNumerals.calculator.RomanSymbols.*;
 
 public class RomanNumeralRulesValidator {
 
