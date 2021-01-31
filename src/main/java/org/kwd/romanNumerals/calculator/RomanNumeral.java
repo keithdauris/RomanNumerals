@@ -20,9 +20,9 @@ public class RomanNumeral {
             tensString = setTensString(romanNumeral);
             unitsString = setUnitsString(romanNumeral);
             this.romanNumeral = romanNumeral;
+        } else {
+            System.out.println("Invalid String - order");
         }
-        //if valid set romanNumeral else throw exception
-        this.romanNumeral = romanNumeral;
     }
 
     private String setThousandsString(String romanNumeral) {
@@ -124,8 +124,9 @@ public class RomanNumeral {
         return Optional.empty();
     }
 
-    private static int getLastIndex(int secondIndex, String romanNumeral) {
-        for (int i = secondIndex; i < romanNumeral.length() - 1; i++) {
+    private static int getLastIndex(int index, String romanNumeral) {
+        if (index == -1) return -1;
+        for (int i = index; i < romanNumeral.length() - 1; i++) {
             char[] chars = romanNumeral.toCharArray();
             if (chars[i] != chars[i + 1]) {
                 return i;
@@ -133,7 +134,4 @@ public class RomanNumeral {
         }
         return romanNumeral.length() - 1;
     }
-
-
-
 }
