@@ -1,11 +1,14 @@
 package org.kwd.romanNumerals.starter;
 
-import org.kwd.romanNumerals.manager.ConverterManager;
+import org.kwd.romanNumerals.calculator.DecimalToRomanNumeralConverter;
+import org.kwd.romanNumerals.manager.RomanNumeralManager;
 
 public class Starter {
 
     public static void main(String[] args) {
-        ConverterManager converterManager = new ConverterManager();
-        converterManager.convertRomanToDecimalNumber("MMMCMXCIX");
+        RomanNumeralManager converterManager = new RomanNumeralManager();
+//        converterManager.convertToDecimalNumber("MMMCMLXXXVIII");
+        DecimalToRomanNumeralConverter converter = new DecimalToRomanNumeralConverter();
+        converter.convertToRomanNumeral();
     }
 }

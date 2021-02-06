@@ -7,43 +7,71 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RomanNumeralRulesValidatorTest {
 
-    @BeforeEach
-    void setUp() {
-
+    @Test
+    void testThousand() {
+        assertTrue(isValidNumber("M"));
     }
 
     @Test
-    void testOrderValidation() {
-        String rm = "MMMDCCCLXXXVIII";
-        boolean status = RomanNumeralRulesValidator.validateSymbolOrder(rm);
-        assertTrue(status);
-    }
-
-   /* @Test
-    void testThousandsSection() {
-        String rm = "MMMDCCCLXXXVIII";
-        String thousands = RomanNumeralRulesValidator.getThousandsString(rm);
-        assertEquals("MMM",thousands);
+    void testTwoThousand() {
+        assertTrue(isValidNumber("MM"));
     }
 
     @Test
-    void testHundredsSection() {
-        String rm = "MMMCMXXIV";
-        String hundreds = RomanNumeralRulesValidator.getHundredsString(rm);
-        assertEquals("CM", hundreds);
+    void testThreeThousand() {
+        assertTrue(isValidNumber("MMM"));
     }
 
     @Test
-    void testTensSection() {
-        String rm = "MMMCMXXIV";
-        String tens = RomanNumeralRulesValidator.getTensString(rm);
-        assertEquals("XX", tens);
+    void testNineHundred() {
+        assertTrue(isValidNumber("CM"));
     }
 
     @Test
-    void testUnitsSection() {
-        String rm = "MMMCMXXIV";
-        String units = RomanNumeralRulesValidator.getUnitsString(rm);
-        assertEquals("IV", units);
-    }*/
+    void testNinety() {
+        assertTrue(isValidNumber("XC"));
+    }
+
+    @Test
+    void testNine() {
+        assertTrue(isValidNumber("IX"));
+    }
+
+    @Test
+    void testFourHundred() {
+        assertTrue(isValidNumber("CD"));
+    }
+
+    @Test
+    void testForty() {
+        assertTrue(isValidNumber("XL"));
+    }
+
+    @Test
+    void testFour() {
+        assertTrue(isValidNumber("IV"));
+    }
+
+    @Test
+    void testInvalidLetter() {
+        assertFalse(isValidNumber("MMMCCCAXX"));
+    }
+
+    @Test
+    void testInvalidNumber() {
+        assertFalse(isValidNumber("MMMCCC4XX"));
+    }
+
+    @Test
+    void testInvalidSymbol() {
+        assertFalse(isValidNumber("MMMCCC*XX"));
+    }
+
+    @Test
+    void testFull() {
+    }
+
+    private boolean isValidNumber(String romanNumeral) {
+        return RomanNumeralRulesValidator.validateRomanNumeral(romanNumeral);
+    }
 }
