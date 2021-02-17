@@ -11,8 +11,11 @@ public class RomanToDecimalConverterImpl2 implements RomanToDecimalConverter{
 
     public int convertToDecimal(String numeral) {
         RomanNumeralPlaceholders current = setInitialPlaceholder(numeral.substring(0,1));
-        RomanNumeralPlaceholders placeholders = splitPlaceholders(current, numeral.substring(1));
-        return sumPlaceholderValues(placeholders);
+        if (numeral.length()>1) {
+            RomanNumeralPlaceholders placeholders = splitPlaceholders(current, numeral.substring(1));
+            return sumPlaceholderValues(placeholders);
+        }
+        return sumPlaceholderValues(current);
     }
 
     private RomanNumeralPlaceholders setInitialPlaceholder(String firstLetter) {
@@ -32,10 +35,23 @@ public class RomanToDecimalConverterImpl2 implements RomanToDecimalConverter{
     }
 
     private int sumPlaceholderValues(RomanNumeralPlaceholders placeholders) {
-        int thousands = ThousandsValues.valueOf(RomanNumeralPlaceholders.THOUSANDS.getPlaceholderValue().toString()).getValue();
-        int hundreds = HundredsValues.valueOf(RomanNumeralPlaceholders.HUNDREDS.getPlaceholderValue().toString()).getValue();
-        int tens = TensValues.valueOf(RomanNumeralPlaceholders.TENS.getPlaceholderValue().toString()).getValue();
-        int units = UnitValues.valueOf(RomanNumeralPlaceholders.UNITS.getPlaceholderValue().toString()).getValue();
-        return thousands + hundreds + tens + units;
+        int sum = 0;
+        String thousandsPlaceholder = RomanNumeralPlaceholders.THOUSANDS.getPlaceholderValue().toString();
+        if (thousandsPlaceholder.length() > 0) {
+            sum += ThousandsValues.valueOf(thousandsPlaceholder).getValue();
+        }
+        String hundredsPlaceholder = RomanNumeralPlaceholders.HUNDREDS.getPlaceholderValue().toString();
+        if (hundredsPlaceholder.length() > 0) {
+            sum += HundredsValues.valueOf(hundredsPlaceholder).getValue();
+        }
+        String tensPlaceholder = RomanNumeralPlaceholders.TENS.getPlaceholderValue().toString();
+        if (tensPlaceholder.length() > 0) {
+            sum += TensValues.valueOf(tensPlaceholder).getValue();
+        }
+        String unitsPlaceholder = RomanNumeralPlaceholders.UNITS.getPlaceholderValue().toString();
+        if (unitsPlaceholder.length() > 0) {
+            sum += UnitValues.valueOf(unitsPlaceholder).getValue();
+        }
+        return sum;
     }
 }
