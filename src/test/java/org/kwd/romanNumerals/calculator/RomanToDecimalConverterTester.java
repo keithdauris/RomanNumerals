@@ -6,11 +6,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RomanToDecimalConverterTester {
 
-    private RomanToDecimalConverter converter;
+    private RomanToDecimalConverterImpl converter;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
-        converter = new RomanToDecimalConverter();
+        converter = new RomanToDecimalConverterImpl();
     }
 
     @Test

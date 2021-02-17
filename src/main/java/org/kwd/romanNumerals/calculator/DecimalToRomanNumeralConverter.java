@@ -1,5 +1,7 @@
 package org.kwd.romanNumerals.calculator;
 
+import org.kwd.romanNumerals.romansymbols.RomanSymbols;
+
 public class DecimalToRomanNumeralConverter {
 
     public void convertToRomanNumeral() {
@@ -11,6 +13,5 @@ public class DecimalToRomanNumeralConverter {
                 System.out.println(value.toString());
             }
         }
-
     }
 }

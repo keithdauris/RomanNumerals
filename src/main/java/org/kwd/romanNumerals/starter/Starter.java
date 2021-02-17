@@ -7,8 +7,6 @@ public class Starter {
 
     public static void main(String[] args) {
         RomanNumeralManager converterManager = new RomanNumeralManager();
-//        converterManager.convertToDecimalNumber("MMMCMLXXXVIII");
-        DecimalToRomanNumeralConverter converter = new DecimalToRomanNumeralConverter();
-        converter.convertToRomanNumeral();
+        converterManager.convertToDecimalNumber("MMMCMLXXXVIII");
     }
 }

@@ -2,6 +2,7 @@ package org.kwd.romanNumerals.manager;
 
 import org.kwd.romanNumerals.calculator.RomanNumeralRulesValidator;
 import org.kwd.romanNumerals.calculator.RomanToDecimalConverter;
+import org.kwd.romanNumerals.calculator.RomanToDecimalConverterImpl2;
 
 public class RomanNumeralManager {
 
@@ -9,7 +10,7 @@ public class RomanNumeralManager {
             "There are either incorrect symbols being used or the symbols are not in the correct order";
 
     public void convertToDecimalNumber(String romanNumeralString){
-        RomanToDecimalConverter converter = new RomanToDecimalConverter();
+        RomanToDecimalConverter converter = new RomanToDecimalConverterImpl2();
         if (RomanNumeralRulesValidator.validateRomanNumeral(romanNumeralString)) {
             printResult(converter.convertToDecimal(romanNumeralString), romanNumeralString);
         } else {
